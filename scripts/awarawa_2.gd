@@ -1,6 +1,6 @@
 extends Node3D
 
-@onready var psb: PhysicalBoneSimulator3D = $Armature/Skeleton3D/PhysicalBoneSimulator3D
+@onready var pbs: PhysicalBoneSimulator3D = $Armature/Skeleton3D/PhysicalBoneSimulator3D
 @onready var grab_joint_left: PinJoint3D = $GrabJointLeft
 @onready var grab_joint_right: PinJoint3D = $GrabJointRight
 
@@ -26,10 +26,10 @@ var bind_basis: Dictionary = {}  # bone_name -> Basis
 func _ready() -> void:
 	locked_z = global_position.z
 
-	for child in psb.get_children():
+	for child in pbs.get_children():
 		if child is PhysicalBone3D:
 			all_bones.append(child)
-			if child.bone_name.contains("lumbarr") or child.bone_name.contains("dorsal") or child.bone_name.contains("cervical"):
+			if child.bone_name.contains("Spine") or child.bone_name.contains("Hips"):
 				torso_bones.append(child)
 			if child.bone_name.contains("LeftForeArm"):
 				forearm_left.append(child)
@@ -40,10 +40,10 @@ func _ready() -> void:
 	for bone in all_bones:
 		bind_basis[bone.bone_name] = bone.global_transform.basis
 
-	psb.physical_bones_start_simulation()
+	pbs.physical_bones_start_simulation()
 
 	for bone in torso_bones:
-		bone.gravity_scale = 0.15
+		bone.gravity_scale = 0.85
 
 	if not forearm_left.is_empty():
 		var area_l = forearm_left[0].get_node("GrabArea")
@@ -105,6 +105,9 @@ func release_right() -> void:
 	grab_joint_right.node_b = NodePath()
 
 func get_hang_point() -> Vector3:
+	if forearm_left.is_empty() or forearm_right.is_empty():
+		return global_position  # fallback seguro mientras los arrays no tengan huesos
+
 	if grabbing_left and grabbing_right:
 		return (forearm_left[0].global_position + forearm_right[0].global_position) / 2.0
 	elif grabbing_left:
@@ -112,8 +115,7 @@ func get_hang_point() -> Vector3:
 	elif grabbing_right:
 		return forearm_right[0].global_position
 	else:
-		return (forearm_left[0].global_position + forearm_right[0].global_position) / 2.0
-
+		return (forearm_left[0].global_position + forearm_right[0].global_position) / 2.
 func lock_to_plane() -> void:
 	for bone in all_bones:
 		var pos = bone.global_position
