@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://ctprh47k1ocwl"]
+
+[ext_resource type="PackedScene" uid="uid://blfegsbe125qi" path="res://modelos/montania.glb" id="1_7r5pt"]
+[ext_resource type="Texture2D" uid="uid://d3lirtmox32r" path="res://texturas/cielopixel.exr" id="2_8cexu"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_lcyhw"]
+panorama = ExtResource("2_8cexu")
+filter = false
+
+[sub_resource type="Sky" id="Sky_0uoep"]
+sky_material = SubResource("PanoramaSkyMaterial_lcyhw")
+radiance_size = 1
+
+[sub_resource type="Environment" id="Environment_4uxbr"]
+background_mode = 2
+sky = SubResource("Sky_0uoep")
+fog_mode = 1
+fog_light_color = Color(0.4313275, 0.57767063, 0.6237122, 1)
+fog_light_energy = 1.91
+fog_density = 1.0
+
+[node name="montania2" unique_id=1128425391 instance=ExtResource("1_7r5pt")]
+
+[node name="Empty" parent="." index="9" unique_id=1071172086]
+transform = Transform3D(-0.99981475, 0, 0.019242678, 0, 1, 0, -0.019242678, 0, -0.99981475, 0, 0, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="11" unique_id=2042803267]
+environment = SubResource("Environment_4uxbr")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." index="12" unique_id=613524024]
+light_color = Color(1, 1, 0.72156864, 1)
+sky_mode = 1

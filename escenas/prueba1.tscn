@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://bfl8t160wjopr"]
+
+[ext_resource type="Texture2D" uid="uid://d3lirtmox32r" path="res://texturas/cielopixel.exr" id="2_lnory"]
+[ext_resource type="PackedScene" uid="uid://pnsmsry00if1" path="res://escenas/ninio.tscn" id="2_nja0m"]
+[ext_resource type="Texture2D" uid="uid://bmtf4x8n60d4y" path="res://modelos/montania_montania3.png" id="3_lnory"]
+[ext_resource type="PackedScene" uid="uid://mnw3xtkf3p2v" path="res://escenas/awara.tscn" id="3_s2h35"]
+
+[sub_resource type="Gradient" id="Gradient_lnory"]
+offsets = PackedFloat32Array(0.21929824, 0.4385965, 0.80701756, 1)
+colors = PackedColorArray(0.2939056, 0.22230282, 0.058856472, 1, 0.114362724, 0.43175682, 0.113972135, 1, 0.59306425, 0.61758626, 0.37065944, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_nja0m"]
+noise_type = 0
+fractal_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_s2h35"]
+width = 32
+height = 32
+noise = SubResource("FastNoiseLite_nja0m")
+color_ramp = SubResource("Gradient_lnory")
+normalize = false
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s2h35"]
+albedo_texture = SubResource("NoiseTexture2D_s2h35")
+texture_filter = 0
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_25sqm"]
+panorama = ExtResource("2_lnory")
+filter = false
+
+[sub_resource type="Sky" id="Sky_s2h35"]
+sky_material = SubResource("PanoramaSkyMaterial_25sqm")
+radiance_size = 1
+
+[sub_resource type="Environment" id="Environment_lnory"]
+background_mode = 2
+background_energy_multiplier = 1.24
+sky = SubResource("Sky_s2h35")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nja0m"]
+size = Vector3(1, 1, 1.1209564)
+
+[sub_resource type="BoxMesh" id="BoxMesh_25sqm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_utc0f"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("3_lnory")
+uv1_triplanar = true
+texture_filter = 0
+
+[node name="Node3D" type="Node3D" unique_id=1571556455]
+
+[node name="piso" type="CSGBox3D" parent="." unique_id=930385389]
+transform = Transform3D(0.9999831, 0.004986064, -0.0029895129, -0.004996725, 0.99998116, -0.0035662898, 0.002971659, 0.0035811802, 0.99998915, 12.665652, 0.39160395, -11.499479)
+material_override = SubResource("StandardMaterial3D_s2h35")
+use_collision = true
+size = Vector3(7.7695313, 0.1886288, 9.310547)
+
+[node name="ninio" parent="." unique_id=1037987283 instance=ExtResource("2_nja0m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.706811, 0.5592145, -12.263642)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=799571656]
+environment = SubResource("Environment_lnory")
+
+[node name="awarawa_zuanim" parent="." unique_id=1540472357 groups=["holds"] instance=ExtResource("3_s2h35")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.30677, 1.7380166, -12.085996)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=405038829 groups=["holds"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.263298, 1.4010403, -12.786146)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1685682080]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.14167023)
+shape = SubResource("BoxShape3D_nja0m")
+debug_color = Color(0.9411765, 0.21176471, 0.16862746, 0.8901961)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1068854148]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.12789059)
+mesh = SubResource("BoxMesh_25sqm")
+surface_material_override/0 = SubResource("StandardMaterial3D_utc0f")
