@@ -106,4 +106,4 @@ mesh = SubResource("BoxMesh_25sqm")
 surface_material_override/0 = SubResource("StandardMaterial3D_utc0f")
 
 [node name="awarawa_zu2" parent="." unique_id=1439673767 instance=ExtResource("3_s2h35")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.53463316, 0.45812345, 0.58958197)
+transform = Transform3D(-0.99829936, 0, 0.058295947, 0, 1, 0, -0.058295947, 0, -0.99829936, -0.53463316, 0.45812345, 0.58958197)

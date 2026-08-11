@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://mnw3xtkf3p2v"]
 
-[ext_resource type="PackedScene" uid="uid://cuek1i0kmdwb8" path="res://modelos/awarawa_zuanim.glb" id="1_5l8dq"]
-[ext_resource type="Script" uid="uid://cstmb2p5tayr7" path="res://awarawa_zuanim.gd" id="2_0pahv"]
+[ext_resource type="PackedScene" path="res://modelos/awarawa_zuanim.glb" id="1_5l8dq"]
+[ext_resource type="Script" uid="uid://cstmb2p5tayr7" path="res://scripts/awarawa_zuanim.gd" id="2_0pahv"]
 [ext_resource type="Script" uid="uid://di3fpmff4iujj" path="res://scripts/Camerapivot.gd" id="3_0pahv"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5l8dq"]

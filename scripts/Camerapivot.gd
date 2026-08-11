@@ -1,7 +1,7 @@
 extends Node3D
 
 @export var target_node: Node3D
-@export var mouse_sensitivity = 0.1
+@export var mouse_sensitivity = 0.05
 
 @onready var physical_skel: Skeleton3D = $"../Armature/Skeleton3D"
 @onready var spring_arm = $SpringArm3D

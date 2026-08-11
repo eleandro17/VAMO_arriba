@@ -51,7 +51,7 @@ func _ready() -> void:
 		area_l.body_exited.connect(_on_left_area_exited)
 
 	if not forearm_right.is_empty():
-		var area_r = forearm_right[0].get_node("GrabArea")
+		var area_r = forearm_right[0].get_node("GrabAreaR")
 		area_r.body_entered.connect(_on_right_area_entered)
 		area_r.body_exited.connect(_on_right_area_exited)
 
