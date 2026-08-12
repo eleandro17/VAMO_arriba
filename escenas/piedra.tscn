@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cd5cy8wo8qr7p"]
+
+[ext_resource type="PackedScene" uid="uid://c6c26p3ot1be7" path="res://modelos/pedra.glb" id="1_hu38d"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_dyton"]
+radius = 0.6133148
+
+[node name="agarres" type="Node3D" unique_id=1196643891 groups=["holds"]]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=2092914627 groups=["holds"]]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=228471485 groups=["holds"]]
+shape = SubResource("SphereShape3D_dyton")
+
+[node name="pedra" parent="." unique_id=476667824 instance=ExtResource("1_hu38d")]
+transform = Transform3D(1.8039517, 0, 0, 0, 1.7776217, 0, 0, 0, 1.7704694, 0, -0.056388438, 0.029189467)
+
+[node name="pedra" parent="pedra" index="0" unique_id=1449062974]
+layers = 2
+
+[editable path="pedra"]

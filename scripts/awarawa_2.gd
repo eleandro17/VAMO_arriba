@@ -39,6 +39,7 @@ func _ready() -> void:
 	# capturamos la bind pose ANTES de iniciar la simulación física
 	for bone in all_bones:
 		bind_basis[bone.bone_name] = bone.global_transform.basis
+		print(bone.bone_name, " -> ", bind_basis[bone.bone_name])
 
 	pbs.physical_bones_start_simulation()
 
@@ -46,7 +47,7 @@ func _ready() -> void:
 		bone.gravity_scale = 0.85
 
 	if not forearm_left.is_empty():
-		var area_l = forearm_left[0].get_node("GrabArea")
+		var area_l = forearm_left[0].get_node("GrabAreaL")
 		area_l.body_entered.connect(_on_left_area_entered)
 		area_l.body_exited.connect(_on_left_area_exited)
 
@@ -56,8 +57,10 @@ func _ready() -> void:
 		area_r.body_exited.connect(_on_right_area_exited)
 
 func _on_left_area_entered(body: Node3D) -> void:
+	print("Area detectó: ", body.name, " | grupos: ", body.get_groups())
 	if body.is_in_group("holds"):
 		hold_near_left = body
+		print("Hold asignado: ", hold_near_left)
 
 func _on_left_area_exited(body: Node3D) -> void:
 	if body == hold_near_left:
@@ -76,10 +79,11 @@ func grab_left() -> void:
 	if grabbing_left or hold_near_left == null or forearm_left.is_empty():
 		return
 	var hand = forearm_left[0]
-	hand.global_position = hold_near_left.global_position
+	var surface_point = _get_surface_point(hand.global_position, hold_near_left)
+	hand.global_position = surface_point
 
 	grabbing_left = true
-	grab_joint_left.global_position = hold_near_left.global_position
+	grab_joint_left.global_position = surface_point
 	grab_joint_left.node_a = hand.get_path()
 	grab_joint_left.node_b = hold_near_left.get_path()
 
@@ -92,10 +96,11 @@ func grab_right() -> void:
 	if grabbing_right or hold_near_right == null or forearm_right.is_empty():
 		return
 	var hand = forearm_right[0]
-	hand.global_position = hold_near_right.global_position
+	var surface_point = _get_surface_point(hand.global_position, hold_near_right)
+	hand.global_position = surface_point
 
 	grabbing_right = true
-	grab_joint_right.global_position = hold_near_right.global_position
+	grab_joint_right.global_position = surface_point
 	grab_joint_right.node_a = hand.get_path()
 	grab_joint_right.node_b = hold_near_right.get_path()
 
@@ -116,6 +121,7 @@ func get_hang_point() -> Vector3:
 		return forearm_right[0].global_position
 	else:
 		return (forearm_left[0].global_position + forearm_right[0].global_position) / 2.
+
 func lock_to_plane() -> void:
 	for bone in all_bones:
 		var pos = bone.global_position
@@ -136,17 +142,30 @@ func apply_spring_correction(delta: float) -> void:
 		var current_basis: Basis = bone.global_transform.basis
 		var rotation_difference: Basis = target_basis * current_basis.inverse()
 
-		var torque = hookes_law(rotation_difference.get_euler(), bone.angular_velocity, angular_spring_stiffness, angular_spring_damping)
+		var quat_diff = rotation_difference.get_rotation_quaternion()
+		var axis = quat_diff.get_axis()
+		var angle = quat_diff.get_angle()
+
+		var displacement = axis * angle
+
+		var torque = hookes_law(displacement, bone.angular_velocity, angular_spring_stiffness, angular_spring_damping)
 		torque = torque.limit_length(max_angular_force)
 
 		bone.angular_velocity += torque * delta
+		#if bone.bone_name == "mixamorig_Hips":
+			#    print("angle: ", angle, " | torque: ", torque)
 
 func _physics_process(delta: float) -> void:
 	lock_to_plane()
+	lock_rotation_to_plane()
 	apply_spring_correction(delta)
 
 	if not grabbing_left and not grabbing_right:
 		return
+
+	for bone in all_bones:
+		if bone.linear_velocity.length() > 15.0:
+			bone.linear_velocity = bone.linear_velocity.limit_length(15.0)
 
 	var hang_point = get_hang_point()
 	for bone in torso_bones:
@@ -189,3 +208,24 @@ func _unhandled_input(event: InputEvent) -> void:
 		grab_right()
 	if event.is_action_released("grab_right"):
 		release_right()
+
+# --- raycast para encontrar el punto de superficie real al agarrar ---
+func _get_surface_point(hand_pos: Vector3, hold: Node3D) -> Vector3:
+	var space_state = get_world_3d().direct_space_state
+	var to_hand_dir = (hand_pos - hold.global_position).normalized()
+	if to_hand_dir == Vector3.ZERO:
+		to_hand_dir = Vector3.UP
+	var ray_start = hold.global_position + to_hand_dir * 10.0  # bien afuera de la piedra
+	var query = PhysicsRayQueryParameters3D.create(ray_start, hold.global_position)
+	query.collision_mask = hold.collision_layer
+	var result = space_state.intersect_ray(query)
+	if result:
+		return result.position
+	return hold.global_position  # fallback por si el ray no pega nada
+
+func lock_rotation_to_plane() -> void:
+	for bone in all_bones:
+		var av = bone.angular_velocity
+		av.x = 0.0
+		av.y = 0.0
+		bone.angular_velocity = av

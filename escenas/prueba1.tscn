@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://bfl8t160wjopr"]
 
 [ext_resource type="Texture2D" uid="uid://d3lirtmox32r" path="res://texturas/cielopixel.exr" id="2_lnory"]
-[ext_resource type="Texture2D" uid="uid://bmtf4x8n60d4y" path="res://modelos/montania_montania3.png" id="3_lnory"]
+[ext_resource type="PackedScene" uid="uid://c1bdovg2ubdsl" path="res://escenas/montania.tscn" id="3_lnory"]
 [ext_resource type="PackedScene" uid="uid://pu6u5se6280u" path="res://escenas/awarawa2.tscn" id="3_s2h35"]
+[ext_resource type="PackedScene" uid="uid://cd5cy8wo8qr7p" path="res://escenas/piedra.tscn" id="4_lnory"]
 
 [sub_resource type="Gradient" id="Gradient_lnory"]
 offsets = PackedFloat32Array(0.21929824, 0.4385965, 0.80701756, 1)
@@ -41,21 +42,13 @@ size = Vector3(1, 1, 1.1209564)
 
 [sub_resource type="BoxMesh" id="BoxMesh_25sqm"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_utc0f"]
-transparency = 2
-alpha_scissor_threshold = 0.5
-alpha_antialiasing_mode = 0
-albedo_texture = ExtResource("3_lnory")
-uv1_triplanar = true
-texture_filter = 0
-
 [node name="Node3D" type="Node3D" unique_id=1571556455]
 
 [node name="piso" type="CSGBox3D" parent="." unique_id=930385389]
 transform = Transform3D(0.9999831, 0.004986064, -0.0029895129, -0.004996725, 0.99998116, -0.0035662898, 0.002971659, 0.0035811802, 0.99998915, 0.39245826, -0.01901819, -1.6719148)
 material_override = SubResource("StandardMaterial3D_s2h35")
 use_collision = true
-size = Vector3(7.7695313, 0.1886288, 9.627441)
+size = Vector3(65.70703, 0.1886288, 55.9646)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=799571656]
 environment = SubResource("Environment_lnory")
@@ -72,11 +65,9 @@ debug_color = Color(0.9411765, 0.21176471, 0.16862746, 0.8901961)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1068854148]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.12789059)
-mesh = SubResource("BoxMesh_25sqm")
-surface_material_override/0 = SubResource("StandardMaterial3D_utc0f")
 
 [node name="StaticBody3D3" type="StaticBody3D" parent="." unique_id=116802312 groups=["holds"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5921477, 1.5325509, -0.07279277)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.920544, 4.515359, 15.912506)
 collision_layer = 2
 collision_mask = 2
 
@@ -87,8 +78,6 @@ debug_color = Color(0.9411765, 0.21176471, 0.16862746, 0.8901961)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D3" unique_id=912930678]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.12789059)
-mesh = SubResource("BoxMesh_25sqm")
-surface_material_override/0 = SubResource("StandardMaterial3D_utc0f")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="." unique_id=1341959621 groups=["holds"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45610642, 1.8697315, -0.07279277)
@@ -103,7 +92,17 @@ debug_color = Color(0.9411765, 0.21176471, 0.16862746, 0.8901961)
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2" unique_id=703898398]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.12789059)
 mesh = SubResource("BoxMesh_25sqm")
-surface_material_override/0 = SubResource("StandardMaterial3D_utc0f")
 
 [node name="awarawa_zu2" parent="." unique_id=1439673767 instance=ExtResource("3_s2h35")]
-transform = Transform3D(-0.99829936, 0, 0.058295947, 0, 1, 0, -0.058295947, 0, -0.99829936, -0.53463316, 0.45812345, 0.58958197)
+transform = Transform3D(-0.99829936, 0, 0.058295947, 0, 1, 0, -0.058295947, 0, -0.99829936, -0.7257582, 3.9107778, 17.158705)
+
+[node name="montania2" parent="." unique_id=1100182777 instance=ExtResource("3_lnory")]
+
+[node name="Node3D" parent="." unique_id=1196643891 instance=ExtResource("4_lnory")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.294023, 16.687801)
+
+[node name="agarres" parent="." unique_id=1287286863 instance=ExtResource("4_lnory")]
+transform = Transform3D(-0.88176495, 0, 0.47168908, -0.46896031, 0.10740937, -0.87666386, -0.05066383, -0.9942149, -0.09470982, -0.89889896, 4.3473134, 16.602594)
+
+[node name="agarres2" parent="." unique_id=748099476 instance=ExtResource("4_lnory")]
+transform = Transform3D(-0.29494742, -0.9546414, 0.040815175, 0.18361713, -0.09854644, -0.9780458, 0.9377051, -0.28097758, 0.2043547, -0.46536076, 4.75777, 16.676914)
