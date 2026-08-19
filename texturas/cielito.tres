@@ -1,0 +1,16 @@
+[gd_resource type="Environment" format=3 uid="uid://cc7siyswcinxq"]
+
+[ext_resource type="Texture2D" uid="uid://d3lirtmox32r" path="res://texturas/cielopixel.exr" id="1_t3sdw"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_25sqm"]
+panorama = ExtResource("1_t3sdw")
+filter = false
+
+[sub_resource type="Sky" id="Sky_s2h35"]
+sky_material = SubResource("PanoramaSkyMaterial_25sqm")
+radiance_size = 1
+
+[resource]
+background_mode = 2
+background_energy_multiplier = 1.13
+sky = SubResource("Sky_s2h35")

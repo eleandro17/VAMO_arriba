@@ -23,6 +23,9 @@ var bind_basis: Dictionary = {}  # bone_name -> Basis
 @export var angular_spring_damping: float = 20.0
 @export var max_angular_force: float = 300.0
 
+# --- push arm ---
+@export var push_arm_up_ratio: float = 0.5  # cuánto empuje hacia arriba se mezcla con el lateral
+
 func _ready() -> void:
 	locked_z = global_position.z
 
@@ -42,7 +45,7 @@ func _ready() -> void:
 		print(bone.bone_name, " -> ", bind_basis[bone.bone_name])
 
 	pbs.physical_bones_start_simulation()
-
+ 
 	for bone in torso_bones:
 		bone.gravity_scale = 0.85
 
@@ -173,25 +176,18 @@ func _physics_process(delta: float) -> void:
 		var target_velocity = direccion * 3.0
 		bone.linear_velocity = bone.linear_velocity.lerp(target_velocity, 5.0 * delta)
 
-func push(direccion: Vector3, fuerza: float = 6.0) -> void:
-	direccion.z = 0.0
-	for bone in torso_bones:
-		bone.apply_central_impulse(direccion.normalized() * fuerza)
-
 func push_arm(bones: Array[PhysicalBone3D], direccion: Vector3, fuerza: float = 16.0) -> void:
 	direccion.z = 0.0
+	# mezclamos la dirección lateral con un empuje hacia arriba (push_arm_up_ratio controla cuánto)
+	var impulso = (direccion.normalized() + Vector3.UP * push_arm_up_ratio).normalized() * fuerza
 	for bone in bones:
-		bone.apply_central_impulse(direccion.normalized() * fuerza)
+		bone.apply_central_impulse(impulso)
 
 func jump(fuerza: float = 26.0) -> void:
 	for bone in torso_bones:
 		bone.apply_central_impulse(Vector3.UP * fuerza)
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_up"):
-		push(Vector3.UP)
-	if event.is_action_pressed("ui_down"):
-		push(Vector3.DOWN)
 	if event.is_action_pressed("ui_left"):
 		push_arm(forearm_left, Vector3.LEFT)
 	if event.is_action_pressed("ui_right"):
@@ -207,7 +203,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("grab_right"):
 		grab_right()
 	if event.is_action_released("grab_right"):
-		release_right()
+		release_right()   
 
 # --- raycast para encontrar el punto de superficie real al agarrar ---
 func _get_surface_point(hand_pos: Vector3, hold: Node3D) -> Vector3:
