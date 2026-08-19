@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://bn3fgvgdvxtu2"
-path="res://.godot/imported/Juicy Fruity.ttf-7d4c6b3a4003b8e03017fe97a269b937.fontdata"
+path="res://.godot/imported/Juicy Fruity.ttf-6217d6b4c92893fa3fee074830f92f53.fontdata"
 
 [deps]
 
-source_file="res://Visuales- fuentes/Juicy Fruity.ttf"
-dest_files=["res://.godot/imported/Juicy Fruity.ttf-7d4c6b3a4003b8e03017fe97a269b937.fontdata"]
+source_file="res://Visuales- Fonts/Juicy Fruity.ttf"
+dest_files=["res://.godot/imported/Juicy Fruity.ttf-6217d6b4c92893fa3fee074830f92f53.fontdata"]
 
 [params]
 
