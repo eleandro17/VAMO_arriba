@@ -1,5 +1,7 @@
 extends Node3D
 
+signal grabbed_hold(hold: Node3D, hand: String)
+
 @onready var pbs: PhysicalBoneSimulator3D = $Armature/Skeleton3D/PhysicalBoneSimulator3D
 @onready var grab_joint_left: PinJoint3D = $GrabJointLeft
 @onready var grab_joint_right: PinJoint3D = $GrabJointRight
@@ -61,7 +63,7 @@ func _ready() -> void:
 
 func _on_left_area_entered(body: Node3D) -> void:
 	print("Area detectó: ", body.name, " | grupos: ", body.get_groups())
-	if body.is_in_group("holds"):
+	if body.is_in_group("holds") or body.is_in_group("checkpoint"):
 		hold_near_left = body
 		print("Hold asignado: ", hold_near_left)
 
@@ -70,7 +72,7 @@ func _on_left_area_exited(body: Node3D) -> void:
 		hold_near_left = null
 
 func _on_right_area_entered(body: Node3D) -> void:
-	if body.is_in_group("holds"):
+	if body.is_in_group("holds") or body.is_in_group("checkpoint"):
 		hold_near_right = body
 
 func _on_right_area_exited(body: Node3D) -> void:
@@ -89,6 +91,7 @@ func grab_left() -> void:
 	grab_joint_left.global_position = surface_point
 	grab_joint_left.node_a = hand.get_path()
 	grab_joint_left.node_b = hold_near_left.get_path()
+	grabbed_hold.emit(hold_near_left, "left")
 
 func release_left() -> void:
 	grabbing_left = false
@@ -106,6 +109,7 @@ func grab_right() -> void:
 	grab_joint_right.global_position = surface_point
 	grab_joint_right.node_a = hand.get_path()
 	grab_joint_right.node_b = hold_near_right.get_path()
+	grabbed_hold.emit(hold_near_right, "right")
 
 func release_right() -> void:
 	grabbing_right = false
@@ -203,7 +207,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("grab_right"):
 		grab_right()
 	if event.is_action_released("grab_right"):
-		release_right()   
+		release_right()
 
 # --- raycast para encontrar el punto de superficie real al agarrar ---
 func _get_surface_point(hand_pos: Vector3, hold: Node3D) -> Vector3:
@@ -225,3 +229,18 @@ func lock_rotation_to_plane() -> void:
 		av.x = 0.0
 		av.y = 0.0
 		bone.angular_velocity = av
+
+# --- respawn / checkpoint: reposiciona el ragdoll entero en spawn_transform,
+# resetea velocidades y suelta cualquier agarre activo, sin destruir nada ---
+func respawn_at(spawn_transform: Transform3D) -> void:
+	release_left()
+	release_right()
+
+	var offset = spawn_transform.origin - global_position
+	global_position = spawn_transform.origin
+	locked_z = spawn_transform.origin.z
+
+	for bone in all_bones:
+		bone.global_position += offset
+		bone.linear_velocity = Vector3.ZERO
+		bone.angular_velocity = Vector3.ZERO

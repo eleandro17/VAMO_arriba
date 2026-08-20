@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bm647ebfa0joh"
+path="res://.godot/imported/Anajunno_Check it.ogg-1ade8bccfb5dbe3ed61f4b6cae737d7a.oggvorbisstr"
+
+[deps]
+
+source_file="res://sonido/Anajunno_Check it.ogg"
+dest_files=["res://.godot/imported/Anajunno_Check it.ogg-1ade8bccfb5dbe3ed61f4b6cae737d7a.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

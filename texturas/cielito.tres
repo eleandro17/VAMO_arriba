@@ -8,9 +8,11 @@ filter = false
 
 [sub_resource type="Sky" id="Sky_s2h35"]
 sky_material = SubResource("PanoramaSkyMaterial_25sqm")
-radiance_size = 1
+process_mode = 3
+radiance_size = 0
 
 [resource]
 background_mode = 2
 background_energy_multiplier = 1.13
 sky = SubResource("Sky_s2h35")
+sky_rotation = Vector3(0, 2.4801128, 0)
