@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b5n8otqu8mw1y"
-path="res://.godot/imported/montania.glb-fed63273c79616343cfd6d24822c6069.scn"
+uid="uid://k7g4057wa7ng"
+path="res://.godot/imported/awarawa_zu2.glb-721ec42f2fa847f5d19d94e67f1f9ca6.scn"
 
 [deps]
 
-source_file="res://modelos/montania.glb"
-dest_files=["res://.godot/imported/montania.glb-fed63273c79616343cfd6d24822c6069.scn"]
+source_file="res://modelos/awarawa_zu2.glb"
+dest_files=["res://.godot/imported/awarawa_zu2.glb-721ec42f2fa847f5d19d94e67f1f9ca6.scn"]
 
 [params]
 

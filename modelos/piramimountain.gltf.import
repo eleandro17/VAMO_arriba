@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b5n8otqu8mw1y"
-path="res://.godot/imported/montania.glb-fed63273c79616343cfd6d24822c6069.scn"
+uid="uid://csxl8vao78std"
+path="res://.godot/imported/piramimountain.gltf-656f3bac41cd5ed34ea58b61b9a166d3.scn"
 
 [deps]
 
-source_file="res://modelos/montania.glb"
-dest_files=["res://.godot/imported/montania.glb-fed63273c79616343cfd6d24822c6069.scn"]
+source_file="res://modelos/piramimountain.gltf"
+dest_files=["res://.godot/imported/piramimountain.gltf-656f3bac41cd5ed34ea58b61b9a166d3.scn"]
 
 [params]
 

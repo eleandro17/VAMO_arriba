@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0nktoeg8qhar"
-path.s3tc="res://.godot/imported/montania_montania3.png-7ebb3b778930812a47ad13b6221ff900.s3tc.ctex"
+uid="uid://ddb0jympygm7l"
+path.s3tc="res://.godot/imported/pedra_montania3.png-277d59d615e75072db8f972e28b9fa8a.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://modelos/montania_montania3.png"
-dest_files=["res://.godot/imported/montania_montania3.png-7ebb3b778930812a47ad13b6221ff900.s3tc.ctex"]
+source_file="res://modelos/pedra_montania3.png"
+dest_files=["res://.godot/imported/pedra_montania3.png-277d59d615e75072db8f972e28b9fa8a.s3tc.ctex"]
 
 [params]
 

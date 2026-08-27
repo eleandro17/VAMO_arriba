@@ -2,20 +2,17 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0nktoeg8qhar"
-path.s3tc="res://.godot/imported/montania_montania3.png-7ebb3b778930812a47ad13b6221ff900.s3tc.ctex"
+uid="uid://bid1c5x0c5mh6"
+path.s3tc="res://.godot/imported/montania3.png-f7d9248f17612e76307fb03bdb4fab06.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={
-"md5": "eaaa0723bbf4477f71a809fa8969d47d"
-}
 
 [deps]
 
-source_file="res://modelos/montania_montania3.png"
-dest_files=["res://.godot/imported/montania_montania3.png-7ebb3b778930812a47ad13b6221ff900.s3tc.ctex"]
+source_file="res://modelos/montania3.png"
+dest_files=["res://.godot/imported/montania3.png-f7d9248f17612e76307fb03bdb4fab06.s3tc.ctex"]
 
 [params]
 

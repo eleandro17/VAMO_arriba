@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b5n8otqu8mw1y"
-path="res://.godot/imported/montania.glb-fed63273c79616343cfd6d24822c6069.scn"
+uid="uid://din1yh5pj0350"
+path="res://.godot/imported/ayudador1.gltf-d2a2d41f930a69dd683a7e5f849be385.scn"
 
 [deps]
 
-source_file="res://modelos/montania.glb"
-dest_files=["res://.godot/imported/montania.glb-fed63273c79616343cfd6d24822c6069.scn"]
+source_file="res://modelos/ayudador1.gltf"
+dest_files=["res://.godot/imported/ayudador1.gltf-d2a2d41f930a69dd683a7e5f849be385.scn"]
 
 [params]
 
