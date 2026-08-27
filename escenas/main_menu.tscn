@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://byrf77fmx1tqs"]
 
-[ext_resource type="Script" uid="uid://bdxsyu4qom04m" path="res://main_menu.gd" id="1_06t4h"]
+[ext_resource type="Script" uid="uid://bdxsyu4qom04m" path="res://scripts/main_menu.gd" id="1_06t4h"]
 [ext_resource type="Texture2D" uid="uid://cr780xokfk5my" path="res://Visuales- Fonts/Asset1.png" id="2_0o4t1"]
 [ext_resource type="Texture2D" uid="uid://dkc0owsvwmy4g" path="res://Visuales- Fonts/Asset 2.png" id="3_0k4wn"]
 [ext_resource type="FontFile" uid="uid://bn3fgvgdvxtu2" path="res://Visuales- Fonts/Juicy Fruity.ttf" id="3_fu7sn"]
@@ -11,9 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bhi3v4puit13d" path="res://Visuales- Fonts/Asset 7.png" id="8_g8g3n"]
 [ext_resource type="Texture2D" uid="uid://bx03u7ib24sam" path="res://Visuales- Fonts/Asset 9.png" id="9_8u0te"]
 [ext_resource type="FontFile" uid="uid://gamyquk7pbc5" path="res://Visuales- Fonts/jello-stone-font/JelloStone-YqKz8.ttf" id="11_iotk1"]
-[ext_resource type="Texture2D" uid="uid://bst6cmaey5xoq" path="res://Visuales- Fonts/Assetfondo1.png" id="11_j5v2v"]
-[ext_resource type="AudioStream" uid="uid://bsa0xbb64vp3o" path="res://Musica-SFX/wind_quillan.ogg" id="13_iotk1"]
-[ext_resource type="VideoStream" uid="uid://cnx4hkretdi31" path="res://Visuales- Fonts/zorrito2sincolor.ogv" id="14_5o8xl"]
+[ext_resource type="AudioStream" uid="uid://bm647ebfa0joh" path="res://sonido/Anajunno_Check it.ogg" id="12_cg856"]
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_7vrkn"]
 frames = 9
@@ -38,9 +36,6 @@ frame_8/duration = 0.5
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0o4t1"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iotk1"]
-texture = ExtResource("11_j5v2v")
-
 [node name="MainMenu" type="Control" unique_id=1041710915]
 layout_mode = 3
 anchors_preset = 15
@@ -61,20 +56,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("AnimatedTexture_7vrkn")
-
-[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="ColorRect" unique_id=1392515636]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -144.0
-offset_top = -216.0
-offset_right = 144.0
-offset_bottom = 216.0
-grow_horizontal = 2
-grow_vertical = 2
-stream = ExtResource("14_5o8xl")
-expand = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=601134354]
 layout_mode = 1
@@ -103,103 +84,66 @@ text = "VAMO ARRIBA"
 
 [node name="jugar" type="Button" parent="VBoxContainer" unique_id=413423479]
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("11_iotk1")
-theme_override_font_sizes/font_size = 21
+theme_override_font_sizes/font_size = 25
 text = "JUGAR"
 
 [node name="ajustes" type="Button" parent="VBoxContainer" unique_id=388723213]
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("11_iotk1")
-theme_override_font_sizes/font_size = 21
+theme_override_font_sizes/font_size = 25
 text = "AJUSTES"
 
 [node name="salir" type="Button" parent="VBoxContainer" unique_id=781228458]
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("11_iotk1")
-theme_override_font_sizes/font_size = 21
+theme_override_font_sizes/font_size = 25
 text = "SALIR
 "
 
-[node name="PaneldeAjustes" type="Panel" parent="." unique_id=101217406]
-visible = false
-layout_mode = 0
-offset_left = 2.0
-offset_top = 2.0
-offset_right = 1150.0
-offset_bottom = 649.0
-theme_override_styles/panel = SubResource("StyleBoxTexture_iotk1")
-
-[node name="Label" type="Label" parent="PaneldeAjustes" unique_id=2045152211]
-layout_mode = 0
-offset_left = 518.0
-offset_top = 219.0
-offset_right = 657.0
-offset_bottom = 290.0
-theme_override_colors/font_color = Color(1, 1, 0, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+[node name="créditos" type="Button" parent="VBoxContainer" unique_id=1780499976]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.9411765, 0, 1)
+theme_override_colors/font_focus_color = Color(0.9698153, 0.94736415, 0.9015478, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 7
-theme_override_constants/shadow_offset_y = 7
-theme_override_fonts/font = ExtResource("3_fu7sn")
-theme_override_font_sizes/font_size = 24
-text = "AJUSTES
-"
-
-[node name="CheckBox música" type="CheckBox" parent="PaneldeAjustes" unique_id=1654389058]
-layout_mode = 0
-offset_left = 522.0
-offset_top = 353.0
-offset_right = 643.0
-offset_bottom = 386.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/h_separation = 9
 theme_override_fonts/font = ExtResource("11_iotk1")
 theme_override_font_sizes/font_size = 25
-text = "MÚSICA
-"
-
-[node name="volver" type="Button" parent="PaneldeAjustes" unique_id=720167148]
-layout_mode = 0
-offset_left = 545.0
-offset_top = 395.0
-offset_right = 625.0
-offset_bottom = 426.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("11_iotk1")
-theme_override_font_sizes/font_size = 20
-text = "VOLVER
-"
-
-[node name="Volumen" type="Label" parent="PaneldeAjustes" unique_id=623311269]
-layout_mode = 0
-offset_left = 471.0
-offset_top = 271.0
-offset_right = 691.0
-offset_bottom = 329.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("11_iotk1")
-theme_override_font_sizes/font_size = 25
-text = "VOLUMEN"
-horizontal_alignment = 1
-vertical_alignment = 1
-tab_stops = PackedFloat32Array(0)
-
-[node name="HSlider" type="HSlider" parent="PaneldeAjustes/Volumen" unique_id=1130252099]
-layout_mode = 1
-anchors_preset = 9
-anchor_bottom = 1.0
-offset_left = -5.0
-offset_top = 26.0
-offset_right = 243.0
-offset_bottom = 28.0
-grow_vertical = 2
-value = 55.0
+text = "CRÉDITOS"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1356981815]
-stream = ExtResource("13_iotk1")
+stream = ExtResource("12_cg856")
 
 [connection signal="pressed" from="VBoxContainer/jugar" to="." method="_on_jugar_pressed"]
 [connection signal="pressed" from="VBoxContainer/ajustes" to="." method="_on_ajustes_pressed"]
 [connection signal="pressed" from="VBoxContainer/salir" to="." method="_on_salir_pressed"]
-[connection signal="toggled" from="PaneldeAjustes/CheckBox música" to="." method="_on_check_box_música_toggled"]
-[connection signal="pressed" from="PaneldeAjustes/volver" to="." method="_on_volver_pressed"]
-[connection signal="value_changed" from="PaneldeAjustes/Volumen/HSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="pressed" from="VBoxContainer/créditos" to="." method="_on_créditos_pressed"]
