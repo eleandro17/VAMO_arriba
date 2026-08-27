@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://0eenh5nek712" path="res://texturas/piedrai.png" id="2_dyton"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_dyton"]
-radius = 0.6133148
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7huaa"]
 albedo_texture = ExtResource("2_dyton")
@@ -53,6 +52,7 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=228471485 groups=["holds"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0720948, 0.07158482, 0.014095247)
 shape = SubResource("SphereShape3D_dyton")
 
 [node name="pedra" parent="." unique_id=476667824 instance=ExtResource("1_hu38d")]

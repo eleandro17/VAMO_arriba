@@ -15,6 +15,10 @@ run/main_scene="uid://bfl8t160wjopr"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GameEvents="*uid://dv843461ntwt"
+
 [input]
 
 grab_left={

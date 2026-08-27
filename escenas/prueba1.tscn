@@ -5,8 +5,11 @@
 [ext_resource type="PackedScene" uid="uid://pu6u5se6280u" path="res://escenas/awarawa2.tscn" id="3_s2h35"]
 [ext_resource type="PackedScene" uid="uid://cd5cy8wo8qr7p" path="res://escenas/piedra.tscn" id="4_lnory"]
 [ext_resource type="PackedScene" uid="uid://buwk457yng2h4" path="res://escenas/piramimountain.tscn" id="5_25sqm"]
+[ext_resource type="Script" uid="uid://nle7le4dlqu8" path="res://scripts/piedrafinal.gd" id="5_vdjfm"]
 [ext_resource type="PackedScene" uid="uid://cdy34rl7f0ycb" path="res://escenas/checkpoint.tscn" id="6_utc0f"]
 [ext_resource type="AudioStream" uid="uid://bg67ytugp0jye" path="res://sonido/aguaraWATT.ogg" id="7_aa1h0"]
+[ext_resource type="Texture2D" uid="uid://bn6i8i5r5aau1" path="res://texturas/llegaste.png" id="9_sup8y"]
+[ext_resource type="Script" uid="uid://bqenviv3el4tv" path="res://scripts/cartel_llegada.gd" id="10_025hc"]
 
 [sub_resource type="Gradient" id="Gradient_lnory"]
 offsets = PackedFloat32Array(0.21929824, 0.4385965, 0.80701756, 1)
@@ -27,6 +30,19 @@ normalize = false
 albedo_texture = SubResource("NoiseTexture2D_s2h35")
 texture_filter = 0
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_sup8y"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_025hc"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+albedo_texture = ExtResource("9_sup8y")
+texture_filter = 0
+texture_repeat = false
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_3hjln"]
+material = SubResource("StandardMaterial3D_025hc")
+
 [node name="Node3D" type="Node3D" unique_id=1571556455]
 
 [node name="piso" type="CSGBox3D" parent="." unique_id=930385389]
@@ -39,7 +55,7 @@ size = Vector3(65.70703, 0.1886288, 55.9646)
 environment = ExtResource("1_25sqm")
 
 [node name="awarawa_zu2" parent="." unique_id=1439673767 instance=ExtResource("3_s2h35")]
-transform = Transform3D(-0.99829936, 0, 0.058295947, 0, 1, 0, -0.058295947, 0, -0.99829936, -0.7257582, 0.10035169, 17.123854)
+transform = Transform3D(-0.99829936, 0, 0.058295947, 0, 1, 0, -0.058295947, 0, -0.99829936, -0.7257582, 0.10035169, 17.05475)
 
 [node name="agarres" type="Node3D" parent="." unique_id=580755803]
 script = ExtResource("3_25sqm")
@@ -124,6 +140,22 @@ transform = Transform3D(-0.29494742, -0.9546414, 0.040815175, 0.18361713, -0.098
 [node name="agarres7" parent="agarres3" unique_id=1453652865 instance=ExtResource("4_lnory")]
 transform = Transform3D(-0.29494742, -0.9546414, 0.040815175, 0.18361713, -0.09854644, -0.9780458, 0.9377051, -0.28097758, 0.2043547, 2.849585, 2.2238474, 16.676914)
 
+[node name="agarres4" type="Node3D" parent="." unique_id=36732384]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.821799, -2.9383059)
+
+[node name="Node3D" parent="agarres4" unique_id=1515460913 instance=ExtResource("4_lnory")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.21013618, 9.537656, 15.184385)
+
+[node name="agarres" parent="agarres4" unique_id=1388260063 instance=ExtResource("4_lnory")]
+transform = Transform3D(-0.88176495, 0, 0.47168908, -0.47131932, -0.039591193, -0.8810737, 0.018674739, -0.99921596, 0.034910135, -0.89889896, 1.2855349, 16.624678)
+
+[node name="Area3D" type="Area3D" parent="agarres4" unique_id=473219249]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2883463, 9.5030775, 15.235029)
+script = ExtResource("5_vdjfm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="agarres4/Area3D" unique_id=930851199]
+shape = SubResource("SphereShape3D_sup8y")
+
 [node name="piramimountain" parent="." unique_id=1303861415 instance=ExtResource("5_25sqm")]
 transform = Transform3D(-0.009023223, 0, -0.99995923, 0, 1, 0, 0.99995923, 0, -0.009023223, 0, 0, 8.674578)
 
@@ -135,13 +167,25 @@ next_spawn_path = NodePath("../SpawnNivel2")
 transform = Transform3D(0.8032855, 0, 0.59559417, 0, 1, 0, -0.59559417, 0, 0.8032855, -1.5062823, 15.097224, 14.797642)
 next_spawn_path = NodePath("../SpawnNivel3")
 
+[node name="ayudador3" parent="." unique_id=147392244 instance=ExtResource("6_utc0f")]
+transform = Transform3D(0.98277444, 0, 0.18480906, 0, 1, 0, -0.18480906, 0, 0.98277444, 1.6977673, 21.336555, 13.131796)
+next_spawn_path = NodePath("../SpawnNivel4")
+
 [node name="SpawnNivel2" type="Marker3D" parent="." unique_id=373180034]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2646532, 8.502215, 15.418593)
 
 [node name="SpawnNivel3" type="Marker3D" parent="." unique_id=1760013293]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.22587585, 15.693304, 14.096462)
 
+[node name="SpawnNivel4" type="Marker3D" parent="." unique_id=1648477537]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.28320616, 21.546402, 12.700166)
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=713724265]
 stream = ExtResource("7_aa1h0")
 autoplay = true
 parameters/looping = true
+
+[node name="CartelLlegada" type="MeshInstance3D" parent="." unique_id=1785038992]
+transform = Transform3D(1, 0, 0, 0, -0.10661119, -0.9943008, 0, 0.9943008, -0.10661119, 0.33353758, 25.542091, 13.020694)
+mesh = SubResource("PlaneMesh_3hjln")
+script = ExtResource("10_025hc")

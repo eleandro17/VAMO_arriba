@@ -32,10 +32,6 @@ func _input(event):
 		mouse_lock = false
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
-		mouse_lock = true
-		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-
 	if event is InputEventMouseMotion and mouse_lock:
 		rotation_degrees.y -= mouse_sensitivity * event.relative.x
 		rotation_degrees.x -= mouse_sensitivity * event.relative.y
