@@ -34,10 +34,11 @@ func _on_h_slider_value_changed(value: float) -> void:
 		audio_player.volume_db = lerp(-50.0, 0.0, value / 100.0)
 
 func _on_controles_pressed() -> void:
+	get_tree().change_scene_to_file("res://settings/control_settings.tscn")
 	$PaneldeAjustes/Volumen.visible = false
 	$PaneldeAjustes/Controles.visible = false
 	if $PaneldeAjustes.has_node("CheckBox música"):
 		$"PaneldeAjustes/CheckBox música".visible = false
 	if $PaneldeAjustes.has_node("volver"):
 		$PaneldeAjustes/volver.visible = false
-		$PaneldeAjustes/Controles/ControlSettings.enable_controls()
+	

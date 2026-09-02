@@ -1,10 +1,10 @@
 extends Node3D
 
 
-@export var next_spawn_path: NodePath       # Marker3D de dónde aparece en el siguiente nivel
+@export var next_spawn_path: NodePath       # Marker3D 
 @export var hold_body_path: NodePath = ^"areaCheckpoint"  
 @export var trigger_once: bool = true
-@export var ragdoll_group: String = "player"  # el ragdoll tiene que estar en este grupo
+@export var ragdoll_group: String = "player"  # el grupo del ragdoll 
 
 var _already_triggered: bool = false
 var _ragdoll: Node3D
