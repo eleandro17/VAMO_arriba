@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://y6q7rtu5qnhj"]
+
+[ext_resource type="Script" uid="uid://c24kvwcf83hca" path="res://settings/setting_scripts/settings.gd" id="1_wej4n"]
+[ext_resource type="Texture2D" uid="uid://cf654y7uw1w6k" path="res://Visuales- Fonts/Controles asset (1).png" id="2_4wsom"]
+[ext_resource type="FontFile" uid="uid://bn3fgvgdvxtu2" path="res://Visuales- Fonts/Juicy Fruity.ttf" id="3_txo7o"]
+
+[node name="ControlSettings" type="Control" unique_id=900525762]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_wej4n")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1264992393]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_4wsom")
+expand_mode = 3
+stretch_mode = 3
+
+[node name="volver" type="Button" parent="." unique_id=1179738611]
+layout_mode = 0
+offset_left = 1004.0
+offset_top = 587.0
+offset_right = 1143.0
+offset_bottom = 640.0
+theme_override_colors/font_color = Color(0.5058824, 0.78039217, 0.3019608, 1)
+theme_override_colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.16470589, 0.1882353, 0.28627452, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_txo7o")
+theme_override_font_sizes/font_size = 25
+text = "VOLVER"
+
+[connection signal="pressed" from="volver" to="." method="_on_button_pressed"]
