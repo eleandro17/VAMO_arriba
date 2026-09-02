@@ -5,7 +5,6 @@
 [ext_resource type="FontFile" uid="uid://bn3fgvgdvxtu2" path="res://Visuales- Fonts/Juicy Fruity.ttf" id="2_137x1"]
 [ext_resource type="FontFile" uid="uid://gamyquk7pbc5" path="res://Visuales- Fonts/jello-stone-font/JelloStone-YqKz8.ttf" id="3_vovpp"]
 [ext_resource type="PackedScene" uid="uid://y6q7rtu5qnhj" path="res://settings/control_settings.tscn" id="4_mg8s3"]
-[ext_resource type="PackedScene" uid="uid://dm10goi3aup2q" path="res://settings/control_settings_row.tscn" id="5_xkmvy"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i8jny"]
 texture = ExtResource("1_eu2m1")
@@ -37,11 +36,12 @@ grow_vertical = 2
 script = ExtResource("1_137x1")
 
 [node name="PaneldeAjustes" type="Panel" parent="." unique_id=1197666930]
-layout_mode = 0
-offset_left = 2.0
-offset_top = 2.0
-offset_right = 1150.0
-offset_bottom = 649.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_i8jny")
 
 [node name="Label de AJUSTES" type="Label" parent="PaneldeAjustes" unique_id=280269950]
@@ -127,21 +127,13 @@ theme_override_fonts/font = ExtResource("3_vovpp")
 theme_override_font_sizes/font_size = 30
 text = "CONTROLES"
 
-[node name="ControlSettings" parent="PaneldeAjustes/Controles" unique_id=900525762 node_paths=PackedStringArray("TEMPLATE") instance=ExtResource("4_mg8s3")]
+[node name="ControlSettings" parent="PaneldeAjustes/Controles" unique_id=900525762 instance=ExtResource("4_mg8s3")]
 visible = false
 layout_mode = 1
 offset_left = -103.0
 offset_top = -104.0
 offset_right = -103.0
 offset_bottom = -66.0
-TEMPLATE = NodePath("Row")
-
-[node name="Row" parent="PaneldeAjustes/Controles/ControlSettings" unique_id=1896855512 instance=ExtResource("5_xkmvy")]
-layout_mode = 0
-offset_left = 418.0
-offset_top = 369.0
-offset_right = 701.0
-offset_bottom = 400.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1675132225]
 stream = SubResource("AudioStreamOggVorbis_137x1")
@@ -150,5 +142,5 @@ autoplay = true
 [connection signal="toggled" from="PaneldeAjustes/CheckBox música" to="." method="_on_check_box_música_toggled"]
 [connection signal="pressed" from="PaneldeAjustes/volver" to="." method="_on_volver_pressed"]
 [connection signal="value_changed" from="PaneldeAjustes/Volumen/HSlider" to="." method="_on_h_slider_value_changed"]
-[connection signal="pressed" from="PaneldeAjustes/Controles" to="PaneldeAjustes/Controles/ControlSettings" method="_on_controles_pressed"]
+[connection signal="pressed" from="PaneldeAjustes/Controles" to="." method="_on_controles_pressed"]
 [connection signal="visibility_changed" from="PaneldeAjustes/Controles/ControlSettings" to="." method="_on_control_settings_visibility_changed"]
