@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://ckmmsxyksa3g7"]
+
+[ext_resource type="Texture2D" uid="uid://0eenh5nek712" path="res://texturas/piedrai.png" id="1_32rnr"]
+
+[resource]
+albedo_color = Color(2.4302807, 1.516367, 1.0953505, 0.59607846)
+albedo_texture = ExtResource("1_32rnr")
+emission = Color(0, 0.74509805, 0, 1)
+emission_energy_multiplier = 0.0
+uv1_scale = Vector3(1.4, 1.4, 1.4)
+uv1_triplanar = true
+texture_filter = 2

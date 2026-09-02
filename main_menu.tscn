@@ -1,0 +1,149 @@
+[gd_scene format=3 uid="uid://byrf77fmx1tqs"]
+
+[ext_resource type="Script" uid="uid://bdxsyu4qom04m" path="res://Visuales- fuentes/main_menu.gd" id="1_06t4h"]
+[ext_resource type="Texture2D" uid="uid://cr780xokfk5my" path="res://Visuales- fuentes/Asset1.png" id="2_0o4t1"]
+[ext_resource type="Texture2D" uid="uid://dkc0owsvwmy4g" path="res://Visuales- fuentes/Asset 2.png" id="3_0k4wn"]
+[ext_resource type="FontFile" uid="uid://bn3fgvgdvxtu2" path="res://Visuales- fuentes/Juicy Fruity.ttf" id="3_fu7sn"]
+[ext_resource type="Texture2D" uid="uid://dpnbo4yhiukxb" path="res://Visuales- fuentes/Asset 3.png" id="4_j5v2v"]
+[ext_resource type="Texture2D" uid="uid://d0u308uefx1tm" path="res://Visuales- fuentes/Asset 4.png" id="5_iotk1"]
+[ext_resource type="Texture2D" uid="uid://cyqgstsio1kuv" path="res://Visuales- fuentes/Asset 5.png" id="6_w44g7"]
+[ext_resource type="Texture2D" uid="uid://bpng3vmkpehyq" path="res://Visuales- fuentes/Asset 6.png" id="7_cm266"]
+[ext_resource type="Texture2D" uid="uid://bhi3v4puit13d" path="res://Visuales- fuentes/Asset 7.png" id="8_g8g3n"]
+[ext_resource type="Texture2D" uid="uid://bx03u7ib24sam" path="res://Visuales- fuentes/Asset 9.png" id="9_8u0te"]
+[ext_resource type="AudioStream" uid="uid://dad8lvnil7tn3" path="res://Musica tal vez/Anajunno - Check it [videoclip oficial].mp3" id="11_0k4wn"]
+[ext_resource type="FontFile" uid="uid://gamyquk7pbc5" path="res://Visuales- fuentes/jello-stone-font/JelloStone-YqKz8.ttf" id="11_iotk1"]
+[ext_resource type="Texture2D" uid="uid://bst6cmaey5xoq" path="res://Visuales- fuentes/Assetfondo1.png" id="11_j5v2v"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_7vrkn"]
+frames = 9
+frame_0/texture = ExtResource("2_0o4t1")
+frame_0/duration = 0.5
+frame_1/texture = ExtResource("2_0o4t1")
+frame_1/duration = 0.5
+frame_2/texture = ExtResource("3_0k4wn")
+frame_2/duration = 0.5
+frame_3/texture = ExtResource("4_j5v2v")
+frame_3/duration = 0.5
+frame_4/texture = ExtResource("5_iotk1")
+frame_4/duration = 0.5
+frame_5/texture = ExtResource("6_w44g7")
+frame_5/duration = 0.5
+frame_6/texture = ExtResource("7_cm266")
+frame_6/duration = 0.5
+frame_7/texture = ExtResource("8_g8g3n")
+frame_7/duration = 0.5
+frame_8/texture = ExtResource("9_8u0te")
+frame_8/duration = 0.5
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0o4t1"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iotk1"]
+texture = ExtResource("11_j5v2v")
+
+[node name="MainMenu" type="Control" unique_id=1041710915]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_06t4h")
+metadata/_edit_horizontal_guides_ = [17.0]
+
+[node name="ColorRect" type="TextureRect" parent="." unique_id=801830308]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AnimatedTexture_7vrkn")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=601134354]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VAMO ARRIBA" type="Label" parent="VBoxContainer" unique_id=858132546]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_fu7sn")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxTexture_0o4t1")
+text = "VAMO ARRIBA"
+
+[node name="jugar" type="Button" parent="VBoxContainer" unique_id=413423479]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("11_iotk1")
+theme_override_font_sizes/font_size = 21
+text = "JUGAR"
+
+[node name="ajustes" type="Button" parent="VBoxContainer" unique_id=388723213]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("11_iotk1")
+theme_override_font_sizes/font_size = 21
+text = "AJUSTES"
+
+[node name="salir" type="Button" parent="VBoxContainer" unique_id=781228458]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("11_iotk1")
+theme_override_font_sizes/font_size = 21
+text = "SALIR
+"
+
+[node name="PaneldeAjustes" type="Panel" parent="." unique_id=101217406]
+visible = false
+layout_mode = 0
+offset_right = 1154.0
+offset_bottom = 648.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_iotk1")
+
+[node name="Label" type="Label" parent="PaneldeAjustes" unique_id=2045152211]
+layout_mode = 0
+offset_left = 545.0
+offset_top = 310.0
+offset_right = 624.0
+offset_bottom = 369.0
+theme_override_font_sizes/font_size = 20
+text = "AJUSTES
+"
+
+[node name="CheckBox" type="CheckBox" parent="PaneldeAjustes" unique_id=1654389058]
+layout_mode = 0
+offset_left = 527.0
+offset_top = 342.0
+offset_right = 617.0
+offset_bottom = 373.0
+theme_override_font_sizes/font_size = 20
+text = "MÚSICA
+"
+
+[node name="volver" type="Button" parent="PaneldeAjustes" unique_id=720167148]
+layout_mode = 0
+offset_left = 544.0
+offset_top = 383.0
+offset_right = 613.0
+offset_bottom = 414.0
+theme_override_font_sizes/font_size = 20
+text = "VOLVER
+"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1356981815]
+stream = ExtResource("11_0k4wn")
+
+[connection signal="pressed" from="VBoxContainer/jugar" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ajustes" to="." method="_on_ajustes_pressed"]
+[connection signal="pressed" from="VBoxContainer/salir" to="." method="_on_salir_pressed"]
+[connection signal="pressed" from="PaneldeAjustes/volver" to="." method="_on_volver_pressed"]

@@ -1,0 +1,65 @@
+[gd_scene format=4 uid="uid://cd5cy8wo8qr7p"]
+
+[ext_resource type="PackedScene" uid="uid://c6c26p3ot1be7" path="res://modelos/pedra.glb" id="1_hu38d"]
+[ext_resource type="Texture2D" uid="uid://0eenh5nek712" path="res://texturas/piedrai.png" id="2_dyton"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_dyton"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7huaa"]
+albedo_texture = ExtResource("2_dyton")
+emission_energy_multiplier = 0.78
+emission_texture = ExtResource("2_dyton")
+uv1_triplanar = true
+texture_filter = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_rhayy"]
+_surfaces = [{
+"aabb": AABB(-0.95105785, -1, -0.99999994, 1.845484, 1.4472198, 1.8506491),
+"format": 34896613377,
+"index_count": 78,
+"index_data": PackedByteArray("AAAIAAIACQACAAgACAABAAkAAQACAAkAAwAIAAAACAADAAoACAAKAAEACgADAAsACwABAAoADAALAAMAAAAMAAMACwAEAAEAAgABAAQAAQAEAA0ABAABAA0ABgAAAAIADAAAAAYABgACAAcAAgAEAAcABAAGAAcABQALAAwADAAGAAUACwAFAAQABAAFAAYABAAFAA4ABQAEAA4A"),
+"lods": [0.37165946, PackedByteArray("AAABAAIAAwABAAAAAgABAAQAAwAEAAEAAAAFAAMAAwAFAAQABQAAAAYABgAAAAIABAAFAAYABgACAAcAAgAEAAcABAAGAAcA")],
+"name": "piedra",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 15,
+"vertex_data": PackedByteArray("Q6r//6gUAADsvmoalV8AAP///v9TigAA7YPjsAAAAACWXcdh//8AANsHx2FTigAAjB/+/wzTAABDqv////8AAE3ox2GaQQAA7PnkU1OKAABjqORTaxoAAJZdx2GoFAAAAADjsJVfAADtgwAAU4oAAHYk5FN9zwAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_us266"]
+resource_name = "pedra_Icosphere"
+_surfaces = [{
+"aabb": AABB(-0.95105785, -1, -0.99999994, 1.845484, 1.4472198, 1.8506491),
+"attribute_data": PackedByteArray("hM8lmSrBVKCEyCiQ8M3bnnOF9MidetfCG4I5wuB6Es3wzdue5L3LsirBVKDiySOu7X2+vaiH070bgjnCMIUxtzCFMbdseDq7hYKRtO19vr2detfC7X2+vRuCOcJseDq7O8S3mmvHY59ZymSj5L3hmSJ/48s8gS7PbHgIyuLPk6tZymSjM8RFsQPAfaZrx2OfoHu5uJl4Sr8="),
+"format": 34896613399,
+"index_count": 78,
+"index_data": PackedByteArray("AAAYAAIAAwAYAAAAGAADABkAGQADABoAGAAZAAEAGAABABsAHAAEAB0ABwAEABwABAAHAAUABQAHAB4ABAAFAAYAHwAgAAgACwAgAB8AIAALAAkACQALACEAIAAJAAoACgAJACIAIAAKACMADAANAA4ADAAPAA0AEAAkABIAJAAQABMAJAATABEAFwAUACUAFAAXABUAFAAVABYA"),
+"lods": [0.37165946, PackedByteArray("AAABAAIAAwABAAAABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEQAQABMAFAAVABYAFAAXABUA")],
+"material": SubResource("StandardMaterial3D_7huaa"),
+"name": "piedra",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 38,
+"vertex_data": PackedByteArray("Q6r//6gUZePsvmoalV9s4v///v9Timrj7YPjsAAAfuP///7/U4pqtZZdx2H//4+1Q6r/////drXsvmoalV/1te2D47AAALr1ll3HYf//Ev7svmoalV8L+tsHx2FTikb7jB/+/wzTCcH///7/U4oKwUOq/////wnBQ6r//6gUCsFDqv//qBRP1tsHx2FTiqrO7YPjsAAAqNaMH/7/DNNt05Zdx2H//7W1jB/+/wzTobZDqv////9Wr9sHx2FTioC7TejHYZpBt+JjqORTaxpE45Zdx2GoFKnj7PnkU1OKXuLs+eRTU4rbuk3ox2GaQQi37YMAAFOKHrgAAOOwlV8Y/JZdx2GoFJj8diTkU33PafPtgwAAU4pt5mOo5FNrGsL4AADjsJVf4tF2JORTfc8jq4xPwidWYh8bU0/oJ4JOdSjJHiYvmx4mL7oeJi8fHicv+cHP6fnJmOCHWPpQZceQ41XwrWBV8KtgWPCyYFPwp2D07n6v4c4XuurvLa9L5lqyIuDu5Nbg0eSd2tTlSeRB5EhZNiH3UM0m6EyIKdBmHRi7GDYv3BwrL6EbLi8pyK/in8gm4oi/n+xRQkNkOVcdUszgK7Qk1o7m")
+}]
+shadow_mesh = SubResource("ArrayMesh_rhayy")
+
+[node name="agarres" type="Node3D" unique_id=1196643891 groups=["holds"]]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=2092914627 groups=["holds"]]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=228471485 groups=["holds"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0720948, 0.07158482, 0.014095247)
+shape = SubResource("SphereShape3D_dyton")
+
+[node name="pedra" parent="." unique_id=476667824 instance=ExtResource("1_hu38d")]
+transform = Transform3D(1.8039517, 0, 0, 0, 1.7776217, 0, 0, 0, 1.7704694, 0, -0.056388438, 0.029189467)
+
+[node name="pedra" parent="pedra" index="0" unique_id=1449062974]
+layers = 2
+mesh = SubResource("ArrayMesh_us266")
+
+[editable path="pedra"]

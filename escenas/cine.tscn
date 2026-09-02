@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://bcmenc867d7xy"]
+
+[ext_resource type="Script" uid="uid://dk084qmuohjln" path="res://scripts/cine.gd" id="1_0caoo"]
+[ext_resource type="VideoStream" uid="uid://b0q4og2sq1h5o" path="res://Visuales- Fonts/Animación plastilina.ogv" id="2_0caoo"]
+[ext_resource type="FontFile" uid="uid://gamyquk7pbc5" path="res://Visuales- Fonts/jello-stone-font/JelloStone-YqKz8.ttf" id="3_ntfhb"]
+[ext_resource type="FontFile" uid="uid://bn3fgvgdvxtu2" path="res://Visuales- Fonts/Juicy Fruity.ttf" id="4_vnkl4"]
+[ext_resource type="AudioStream" uid="uid://bg67ytugp0jye" path="res://sonido/aguaraWATT.ogg" id="5_edcs2"]
+
+[node name="Control" type="Control" unique_id=272939281]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -7.0
+offset_top = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0caoo")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=455276967]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("2_0caoo")
+autoplay = true
+expand = true
+
+[node name="ColorRect" type="ColorRect" parent="VideoStreamPlayer" unique_id=1309287669]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 17.0
+offset_top = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VideoStreamPlayer/ColorRect" unique_id=2001773065]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_top = 72.0
+offset_right = 312.0
+grow_vertical = 2
+theme_override_colors/default_color = Color(1, 0.9098039, 0.3882353, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/normal_font = ExtResource("3_ntfhb")
+theme_override_font_sizes/normal_font_size = 30
+text = "Todos estamos escapando de algo
+
+
+
+Ayuda al Awara a escalar para escaparse del fuego"
+
+[node name="salirmenú" type="Button" parent="." unique_id=595270289]
+layout_mode = 0
+offset_left = 965.0
+offset_top = 602.0
+offset_right = 1159.0
+offset_bottom = 661.0
+theme_override_colors/font_color = Color(1, 0.9098039, 0.3882353, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_vnkl4")
+theme_override_font_sizes/font_size = 18
+text = "VOLVER"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=45472157]
+stream = ExtResource("5_edcs2")
+autoplay = true
+
+[connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]
+[connection signal="pressed" from="salirmenú" to="." method="_on_button_pressed"]

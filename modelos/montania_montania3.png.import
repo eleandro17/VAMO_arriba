@@ -2,14 +2,14 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmtf4x8n60d4y"
+uid="uid://0nktoeg8qhar"
 path.s3tc="res://.godot/imported/montania_montania3.png-7ebb3b778930812a47ad13b6221ff900.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "6c1c93644cf93aa567c98b582ce1e462"
+"md5": "eaaa0723bbf4477f71a809fa8969d47d"
 }
 
 [deps]

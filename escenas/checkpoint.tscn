@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cdy34rl7f0ycb"]
+
+[ext_resource type="PackedScene" uid="uid://din1yh5pj0350" path="res://modelos/ayudador1.gltf" id="1_r6vle"]
+[ext_resource type="Script" uid="uid://c30kllkts14c2" path="res://scripts/checkpoint.gd" id="2_c2cup"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_c2cup"]
+radius = 0.5917969
+height = 2.084961
+
+[node name="ayudador1" unique_id=2137483927 groups=["checkpoint"] instance=ExtResource("1_r6vle")]
+script = ExtResource("2_c2cup")
+
+[node name="areaCheckpoint" type="StaticBody3D" parent="." index="1" unique_id=419668791 groups=["checkpoint"]]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="areaCheckpoint" index="0" unique_id=17626739 groups=["checkpoint"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.068761945, 0.9698143, 0.4580127)
+shape = SubResource("CapsuleShape3D_c2cup")

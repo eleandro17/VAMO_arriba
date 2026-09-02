@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://dm10goi3aup2q"]
+
+[ext_resource type="Script" uid="uid://ddpwel3ilkol0" path="res://settings/setting_scripts/control_row.gd" id="1_03d8w"]
+[ext_resource type="FontFile" uid="uid://bn3fgvgdvxtu2" path="res://Visuales- Fonts/Juicy Fruity.ttf" id="2_8x010"]
+[ext_resource type="FontFile" uid="uid://gamyquk7pbc5" path="res://Visuales- Fonts/jello-stone-font/JelloStone-YqKz8.ttf" id="2_w8h60"]
+
+[node name="Row" type="HBoxContainer" unique_id=1788451967 node_paths=PackedStringArray("BUTTON", "LABEL")]
+custom_minimum_size = Vector2(100, 30)
+offset_left = 17.0
+offset_top = 3.0
+offset_right = 298.0
+offset_bottom = 33.0
+size_flags_horizontal = 3
+alignment = 1
+script = ExtResource("1_03d8w")
+BUTTON = NodePath("Button")
+LABEL = NodePath("MarginContainer/label")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2086479948]
+custom_minimum_size = Vector2(200, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="label" type="RichTextLabel" parent="MarginContainer" unique_id=1311219399]
+layout_mode = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/selection_color = Color(0.1, 0.1, 1, 0.8)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("2_w8h60")
+theme_override_font_sizes/normal_font_size = 26
+text = "ACCIÓN
+"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="." unique_id=119639187]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_8x010")
+text = "TECLA
+"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

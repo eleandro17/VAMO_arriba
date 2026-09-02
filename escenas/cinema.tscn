@@ -1,0 +1,178 @@
+[gd_scene format=3 uid="uid://cxllw6wmweav"]
+
+[ext_resource type="Script" uid="uid://crxuddfk0oi2s" path="res://scripts/cinema.gd" id="1_v6hl3"]
+[ext_resource type="PackedScene" uid="uid://c1bdovg2ubdsl" path="res://escenas/montania.tscn" id="1_wt0p0"]
+[ext_resource type="Material" uid="uid://ckmmsxyksa3g7" path="res://texturas/pisoc.tres" id="2_mv4gl"]
+[ext_resource type="PackedScene" uid="uid://pu6u5se6280u" path="res://escenas/awarawa2.tscn" id="3_v6hl3"]
+[ext_resource type="Environment" uid="uid://cc7siyswcinxq" path="res://texturas/cielito.tres" id="4_mv4gl"]
+
+[sub_resource type="Animation" id="Animation_v6hl3"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(9.27607, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1.7054493, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera3D:position:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(12.137893, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera3D:rotation:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Camera3D:rotation:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Camera3D:rotation:z")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_03uu3"]
+resource_name = "cinema"
+length = 8.1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2, 2, 0, 0, 2, 0, 0),
+"points": PackedFloat32Array(9.27607, -0.25, 0, 0.25, 0, 9.27607, -0.16666667, 0, 0, 0, 9.27607, -0.116666675, 0, 0, 0, 1.2497578, -0.09499999, 1.3377186, 0, 0, -2.2425976, -0.06611113, 0.58205926, 0, 0, 2.2749414, -0.16249995, -0.75292325, 0, 0, 2.2749414, -0.12680888, 0, 0, 0, 9.024365, -0.082076155, -1.124904, 0, 0, 9.024365, -0.082076155, -1.124904, 0, 0),
+"times": PackedFloat32Array(0, 1, 1.7, 2.27, 3, 4.2, 4.960853, 6, 6.733333)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2, 2, 0, 0, 2, 0, 0),
+"points": PackedFloat32Array(1.7054493, -0.25, 0, 0.25, 0, 1.7054493, -0.16666667, 0, 0, 0, 5.253192, -0.116666675, -0.5912904, 0, 0, 31.881702, -0.09499999, -4.438085, 0, 0, 42.185574, -0.06611113, -1.717312, 0, 0, 46.0375, -0.16249995, -0.6419875, 0, 0, 26.478386, -0.12680888, 3.2598522, 0, 0, 1.3206618, -0.082076155, 4.192954, 0, 0, 1.3206618, -0.082076155, 4.192954, 0, 0),
+"times": PackedFloat32Array(0, 1, 1.7, 2.27, 3, 4.2, 4.960853, 6, 6.733333)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera3D:position:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2, 2, 0, 0, 2, 0, 0),
+"points": PackedFloat32Array(12.137893, -0.25, 0, 0.25, 0, 13.769047, -0.16666667, -0.27185902, 0, 0, 17.70909, -0.116666675, -0.6566737, 0, 0, 40.273567, -0.09499999, -3.7607462, 0, 0, -5.773365, -0.06611113, 7.674489, 0, 0, -2.4123712, -0.16249995, -0.56016564, 0, 0, -2.4123712, -0.12680888, 0, 0, 0, 12.080062, -0.082076155, -2.4154055, 0, 0, 12.080062, -0.082076155, -2.4154055, 0, 0),
+"times": PackedFloat32Array(0, 1, 1.7, 2.27, 3, 4.2, 4.960853, 6, 6.733333)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera3D:rotation:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2, 2, 0, 0, 2, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.16666667, 0, 0, 0, -0.25253168, -0.116666675, 0.042088613, 0, 0, -0.56403804, -0.09499999, 0.05191773, 0, 0, -1.6936151, -0.06611113, 0.18826285, 0, 0, -1.4479783, -0.16249995, -0.04093947, 0, 0, -1.4479783, -0.12680888, 0, 0, 0, 0.43339813, -0.082076155, -0.31356275, 0, 0, 0.43339813, -0.082076155, -0.31356275, 0, 0),
+"times": PackedFloat32Array(0, 1, 1.7, 2.27, 3, 4.2, 4.960853, 6, 6.733333)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Camera3D:rotation:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2, 2, 0, 0, 2, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.16666667, 0, 0, 0, 0, -0.116666675, 0, 0, 0, 0, -0.09499999, 0, 0, 0, 0, -0.06611113, 0, 0, 0, 3.0211127, -0.16249995, -0.5035188, 0, 0, 3.0211127, -0.12680888, 0, 0, 0, -0.19171232, -0.082076155, 0.5354709, 0, 0, -0.19171232, -0.082076155, 0.5354709, 0, 0),
+"times": PackedFloat32Array(0, 1, 1.7, 2.27, 3, 4.2, 4.960853, 6, 6.733333)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Camera3D:rotation:z")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2, 2, 0, 0, 2, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.16666667, 0, 0, 0, 0, -0.116666675, 0, 0, 0, 0, -0.09499999, 0, 0, 0, 0, -0.06611113, 0, 0, 0, 3.1415927, -0.16249995, -0.5235988, 0, 0, -3.1415925, -0.12680888, 1.0471975, 0, 0, -0.13572122, -0.082076155, -0.5009786, 0, 0, -0.13572122, -0.082076155, -0.5009786, 0, 0),
+"times": PackedFloat32Array(0, 1, 1.7, 2.27, 3, 4.2, 4.960853, 6, 6.733333)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vqnd0"]
+_data = {
+&"RESET": SubResource("Animation_v6hl3"),
+&"cinema": SubResource("Animation_03uu3")
+}
+
+[node name="Node3D" type="Node3D" unique_id=1514450443]
+script = ExtResource("1_v6hl3")
+
+[node name="montania2" parent="." unique_id=1100182777 instance=ExtResource("1_wt0p0")]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1919909812]
+transform = Transform3D(49.12131, 0, 0, 0, 2.6410656, 0, 0, 0, 5.59864, -0.03515625, 0, 0.3953941)
+use_collision = true
+size = Vector3(1.4169922, 1, 16.893555)
+material = ExtResource("2_mv4gl")
+
+[node name="awarawa_zu2" parent="." unique_id=1439673767 instance=ExtResource("3_v6hl3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.072271, 1.3370092, 11.482955)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=319596948]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.27607, 1.7054493, 12.137893)
+current = true
+fov = 39.4
+near = 0.043
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1908219048]
+libraries/ = SubResource("AnimationLibrary_vqnd0")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1985951766]
+environment = ExtResource("4_mv4gl")
